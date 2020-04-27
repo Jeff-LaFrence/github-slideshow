@@ -1,0 +1,14 @@
+##Batch file submission 
+#!/bin/bash -l        
+#PBS 
+-l walltime=8:00:00,nodes=1:ppn=8,mem=10gb 
+#PBS 
+-m abe 
+#PBS 
+-M lafre020@umn.edu 
+cd ~/proj/dys
+module load Schrodinger
+maestro
+#maestro commands
+mpirun -np 8 maestro < inputfile > outputfile
+qsub -q Dysmuttest run1
